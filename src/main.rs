@@ -47,7 +47,7 @@ async fn handle_socket(addr: SocketAddr, socket: WebSocket) {
                 Ok(msg) => msg,
                 Err(e) => match e {
                     TungsteniteError::ConnectionClosed | TungsteniteError::AlreadyClosed => {
-                        debug!("Websocket connection was closed: {}", e);
+                        info!("Websocket connection was closed: {}", e);
                         return;
                     }
                     _ => {
@@ -57,7 +57,7 @@ async fn handle_socket(addr: SocketAddr, socket: WebSocket) {
                 },
             };
 
-            debug!("Received WebSocket message: {:?}", &msg);
+            trace!("Received WebSocket message: {:?}", &msg);
         }
     });
 
