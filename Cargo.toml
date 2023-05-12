@@ -1,0 +1,26 @@
+[package]
+name = "ws-mem-usage-example"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+axum = "0.6.1"
+axum-tungstenite = "0.2.0"
+env_logger = "0.7"
+futures = "0.3"
+log = "0.4"
+tikv-jemallocator = "0.5"
+tokio = { version = "1", features = ["full", "rt-multi-thread"] }
+
+# feature/permessage-deflate branch
+[patch.crates-io.tungstenite]
+git = "https://github.com/kazk/tungstenite-rs.git"
+rev = "1737738461f0a30c7c9f05f9b9678ec39081ba03"
+features = ["deflate"]
+
+[dependencies.tungstenite]
+git = "https://github.com/kazk/tungstenite-rs.git"
+rev = "1737738461f0a30c7c9f05f9b9678ec39081ba03"
+features = ["deflate"]
