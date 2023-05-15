@@ -11,7 +11,7 @@ axum-tungstenite = "0.2.0"
 env_logger = "0.7"
 futures = "0.3"
 log = "0.4"
-tikv-jemallocator = "0.5"
+tikv-jemallocator = { version = "0.5", features = ["profiling"] }
 tokio = { version = "1", features = ["full", "rt-multi-thread"] }
 
 # feature/permessage-deflate branch
@@ -24,3 +24,6 @@ features = ["deflate"]
 git = "https://github.com/kazk/tungstenite-rs.git"
 rev = "1737738461f0a30c7c9f05f9b9678ec39081ba03"
 features = ["deflate"]
+
+[profile.release]
+debug = true
